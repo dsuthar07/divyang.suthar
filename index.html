@@ -36,6 +36,60 @@
   ======================================================== -->
 </head>
 
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+  // Initialize EmailJS
+  emailjs.init("uhHJiHwCthHct6GVK");
+
+  // Form Submit
+  document.getElementById("contact-form")
+    .addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const loading = document.querySelector(".loading");
+      const errorMessage = document.querySelector(".error-message");
+      const sentMessage = document.querySelector(".sent-message");
+
+      // Reset messages
+      loading.style.display = "block";
+      errorMessage.style.display = "none";
+      sentMessage.style.display = "none";
+
+      emailjs.sendForm(
+        "service_uuh0qfd",
+        "template_0730rwh",
+        this
+      )
+      .then(() => {
+
+        loading.style.display = "none";
+        sentMessage.style.display = "block";
+
+        // Reset form
+        this.reset();
+
+      })
+      .catch((error) => {
+
+        loading.style.display = "none";
+
+        errorMessage.innerHTML =
+          "Failed to send message. Please try again.";
+
+        errorMessage.style.display = "block";
+
+        console.error("EmailJS Error:", error);
+
+      });
+
+    });
+
+</script>
+	
 <body class="index-page">
 
   <header id="header" class="header dark-background d-flex flex-column">
