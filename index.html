@@ -41,52 +41,54 @@
 
 <script>
 
-  // Initialize EmailJS
   emailjs.init("uhHJiHwCthHct6GVK");
 
-  // Form Submit
-  document.getElementById("contact-form")
-    .addEventListener("submit", function(event) {
+  const form = document.getElementById("contact-form");
+  const sendBtn = document.getElementById("send-btn");
 
-      event.preventDefault();
+  sendBtn.addEventListener("click", function(event) {
 
-      const loading = document.querySelector(".loading");
-      const errorMessage = document.querySelector(".error-message");
-      const sentMessage = document.querySelector(".sent-message");
+    event.preventDefault();
 
-      // Reset messages
-      loading.style.display = "block";
-      errorMessage.style.display = "none";
-      sentMessage.style.display = "none";
+    const loading = document.querySelector(".loading");
+    const errorMessage = document.querySelector(".error-message");
+    const sentMessage = document.querySelector(".sent-message");
 
-      emailjs.sendForm(
-        "service_uuh0qfd",
-        "template_0730rwh",
-        this
-      )
-      .then(() => {
+    loading.style.display = "block";
+    errorMessage.style.display = "none";
+    sentMessage.style.display = "none";
 
-        loading.style.display = "none";
-        sentMessage.style.display = "block";
+    emailjs.sendForm(
+      "service_uuh0qfd",
+      "template_0730rwh",
+      form
+    )
+    .then(function() {
 
-        // Reset form
-        this.reset();
+      loading.style.display = "none";
+      sentMessage.style.display = "block";
 
-      })
-      .catch((error) => {
+      form.reset();
 
-        loading.style.display = "none";
+      setTimeout(() => {
+        sentMessage.style.display = "none";
+      }, 5000);
 
-        errorMessage.innerHTML =
-          "Failed to send message. Please try again.";
+    })
+    .catch(function(error) {
 
-        errorMessage.style.display = "block";
+      loading.style.display = "none";
 
-        console.error("EmailJS Error:", error);
+      errorMessage.innerHTML =
+        "Failed to send message. Please try again.";
 
-      });
+      errorMessage.style.display = "block";
+
+      console.error(error);
 
     });
+
+  });
 
 </script>
 	
@@ -541,7 +543,7 @@
           Your message has been sent successfully!
         </div>
 
-        <button type="submit">
+        <button type="button" id="send-btn">
           Send Message
         </button>
 
