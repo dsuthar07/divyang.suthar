@@ -107,57 +107,6 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* New for Name bounce */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #0f172a;
-  margin: 0;
-}
-
-.name {
-  font-size: 5rem;
-  font-weight: 800;
-  color: white;
-  cursor: default;
-  user-select: none;
-}
-
-.name span {
-  display: inline-block;
-  transition: transform 0.2s;
-}
-
-.name span.bounce {
-  animation: bounce 600ms ease;
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-
-  30% {
-    transform: translateY(-30px);
-  }
-
-  50% {
-    transform: translateY(10px);
-  }
-
-  70% {
-    transform: translateY(-8px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-/* New for name bounce */
-
 
 /* PHP Email Form Messages
 ------------------------------*/
