@@ -57,6 +57,35 @@
   --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
+/* new for bounce names */
+.hero-name span {
+  display: inline-block;
+}
+
+.hero-name span:hover {
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-20px);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+
+  70% {
+    transform: translateY(-5px);
+  }
+}
+/* new for name bounce */
+
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
