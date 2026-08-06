@@ -1414,3 +1414,186 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/* new for background*/
+/* =====================================
+   HERO BACKGROUND ANIMATION
+===================================== */
+
+
+.hero-effects {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 3;
+    pointer-events: none;
+}
+
+
+/* Keep text above effects */
+
+.hero .container {
+    z-index: 5;
+}
+
+
+
+/* Moving Glow */
+
+.glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: .25;
+}
+
+
+.glow-one {
+    background: #00ffff;
+    top: 20%;
+    left: 30%;
+    animation: glowMove1 10s infinite alternate;
+}
+
+
+.glow-two {
+    background: #8a2be2;
+    right: 15%;
+    bottom: 15%;
+    animation: glowMove2 12s infinite alternate;
+}
+
+
+
+@keyframes glowMove1 {
+
+    from {
+        transform: translate(0,0);
+    }
+
+    to {
+        transform: translate(120px,-80px);
+    }
+
+}
+
+
+
+@keyframes glowMove2 {
+
+    from {
+        transform: translate(0,0);
+    }
+
+    to {
+        transform: translate(-100px,60px);
+    }
+
+}
+
+
+
+
+/* Floating Particles */
+
+
+.particles span {
+
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    background:#00ffff;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 10px #00ffff,
+    0 0 25px #00ffff;
+
+    animation: particleFloat 8s infinite ease-in-out;
+
+}
+
+
+
+
+.particles span:nth-child(1){
+    top:20%;
+    left:20%;
+}
+
+
+.particles span:nth-child(2){
+    top:70%;
+    left:30%;
+    animation-delay:2s;
+}
+
+
+.particles span:nth-child(3){
+    top:35%;
+    left:75%;
+    animation-delay:4s;
+}
+
+
+.particles span:nth-child(4){
+    top:80%;
+    left:65%;
+    animation-delay:1s;
+}
+
+
+.particles span:nth-child(5){
+    top:25%;
+    left:85%;
+    animation-delay:3s;
+}
+
+
+.particles span:nth-child(6){
+    top:60%;
+    left:50%;
+    animation-delay:5s;
+}
+
+
+.particles span:nth-child(7){
+    top:15%;
+    left:55%;
+    animation-delay:6s;
+}
+
+
+.particles span:nth-child(8){
+    top:85%;
+    left:80%;
+    animation-delay:7s;
+}
+
+
+
+
+@keyframes particleFloat {
+
+
+    0%,100% {
+
+        transform:translateY(0);
+        opacity:.3;
+
+    }
+
+
+    50% {
+
+        transform:translateY(-80px);
+        opacity:1;
+
+    }
+
+}
